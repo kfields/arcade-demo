@@ -1,5 +1,7 @@
 # Arcade Demo
 
+Demo using the [Python Arcade Library](https://arcade.academy/)
+
 ## Install
 
 Navigate to a directory where you keep your software projects
