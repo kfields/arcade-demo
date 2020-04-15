@@ -87,15 +87,15 @@ class MyGame(arcade.Window):
         #image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         #self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
         self.player_sprite = PlayerCharacter()
-        self.player_sprite.center_x = 256
-        self.player_sprite.center_y = 512
+        self.player_sprite.center_x = 256 * TILE_SCALING
+        self.player_sprite.center_y = 512 * TILE_SCALING
         self.player_list.append(self.player_sprite)
 
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
         # map_name = ":resources:tmx_maps/map.tmx"
-        map_name = "assets/map/sandbox.tmx"
+        map_name = "assets/sandbox2.tmx"
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up
@@ -121,6 +121,9 @@ class MyGame(arcade.Window):
 
         # -- Shading
         self.shading_layer = arcade.tilemap.process_layer(my_map, 'shading', TILE_SCALING)
+
+        # -- Shading
+        self.tile_layer = arcade.tilemap.process_layer(my_map, 'tiles', TILE_SCALING)
 
         # -- Game
         self.blocks_list = arcade.tilemap.process_layer(my_map, 'blocks', TILE_SCALING)
@@ -155,6 +158,7 @@ class MyGame(arcade.Window):
         self.castle_layer.draw()
         self.castledeco_layer.draw()
         self.shading_layer.draw()
+        self.tile_layer.draw()
         self.blocks_list.draw()
         self.coin_list.draw()
         self.player_list.draw()
